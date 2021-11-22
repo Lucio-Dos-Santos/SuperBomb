@@ -4,15 +4,15 @@ from pygame.locals import *
 pygame.init()
 
 #Ouverture de la fenêtre Pygame
-fenetre = pygame.display.set_mode((1920, 1080), FULLSCREEN)
+fenetre = pygame.display.set_mode((1280, 720))
 
 #Chargement et collage du fond
-fond = pygame.image.load("fond.jpg").convert()
-fenetre.blit(fond,(360,150))
+fond = pygame.image.load("assets/fond.jpg").convert()
+fenetre.blit(fond,(140,150))
 
 
 #Chargement et collage du personnage
-perso = pygame.image.load("perso.png").convert_alpha()
+perso = pygame.image.load("assets/perso.png").convert_alpha()
 perso.set_colorkey((255,255,255))
 position_perso = perso.get_rect()
 fenetre.blit(perso,(480,480),position_perso)
@@ -22,7 +22,7 @@ i = 0
 x = 280
 while i<5:
     x = x+80
-    bloc = pygame.image.load("bloc_gris.jpg").convert_alpha()
+    bloc = pygame.image.load("assets/bloc_gris.jpg").convert_alpha()
     fenetre.blit(bloc, (x,150))
     i += 1
 
@@ -30,7 +30,7 @@ i = 0
 x = 1080
 while i<5:
     x = x+80
-    bloc = pygame.image.load("bloc_gris.jpg").convert_alpha()
+    bloc = pygame.image.load("assets/bloc_gris.jpg").convert_alpha()
     fenetre.blit(bloc, (x,150))
     i += 1
 
@@ -38,7 +38,7 @@ i = 0
 y = 150
 while i<12:
     y = y + 80
-    bloc = pygame.image.load("bloc_gris.jpg").convert_alpha()
+    bloc = pygame.image.load("assets/bloc_gris.jpg").convert_alpha()
     fenetre.blit(bloc, (1480,y))
     i += 1
     
@@ -46,7 +46,7 @@ i = 0
 y = 150
 while i<12:
     y = y + 80
-    bloc = pygame.image.load("bloc_gris.jpg").convert_alpha()
+    bloc = pygame.image.load("assets/bloc_gris.jpg").convert_alpha()
     fenetre.blit(bloc, (360,y))
     i += 1
 
@@ -54,7 +54,7 @@ i = 0
 x = 360
 while i<13:
     x = x+80
-    bloc = pygame.image.load("bloc_gris.jpg").convert_alpha()
+    bloc = pygame.image.load("assets/bloc_gris.jpg").convert_alpha()
     fenetre.blit(bloc, (x,1110))
     i += 1
 
