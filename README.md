@@ -1,2 +1,2 @@
 # SuperBomb
-Le meilleur jeu de tout keyce
+Le meilleur jeu de tout keyce academy
