@@ -3,11 +3,7 @@ from pygame.constants import FULLSCREEN, RESIZABLE
 from pygame.locals import *
 import pygame.freetype
 
-pygame.init()
-screen = pygame.display.set_mode((1280, 720))
-GAME_FONT = pygame.freetype.Font(None, 50)
 
-def menu_titre():
-	GAME_FONT.render_to(screen, (1280 / 2.6, 10), "SuperBomb", (0, 255, 0))
-	
+def menu_titre(screen, GAME_FONT, lar, long):
+	GAME_FONT.render_to(screen, (lar * 0.5 - 270, 45), "Super Bomb", (180, 255, 0), size = 70)
 	
