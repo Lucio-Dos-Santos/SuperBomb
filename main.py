@@ -23,6 +23,8 @@ screen.fill((19 ,80 , 13))
 #Définition de la police d'écriture
 GAME_FONT = pygame.freetype.Font('assets/BD_Cartoon_Shout.ttf', 16)
 
+#Définition du titre de la fenêtre
+pygame.display.set_caption("Super Bomb")
 
 #Boucle néccéssaire pour le bon fonctionnement de la partie graphique
 while run:
