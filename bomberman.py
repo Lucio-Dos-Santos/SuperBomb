@@ -15,10 +15,11 @@ def fenetre_jeu():
 
 
 #Chargement et collage du personnage
-    perso = pygame.image.load("assets/perso.png").convert_alpha()
+    perso = pygame.image.load("assets/perso.png")
     perso.set_colorkey((255,255,255))
-    position_perso = [240,100]
-    size = perso.get_size()[0]
+    position_perso = perso.get_rect()
+    fenetre.blit(perso,position_perso)
+    
 
 #bord du cadre de jeu
     i = 0
@@ -141,21 +142,21 @@ def fenetre_jeu():
                     continuer = 0
                 if event.key == K_DOWN:	#Si "flèche bas"
                 #On descend le perso
-                    position_perso[-1] += size
-                
+                    position_perso = position_perso.move(0,-1)
+                    
                 if event.key == K_LEFT:	#Si "flèche gauche"
-                    position_perso[-1] += size
+                    position_perso = position_perso.move(1,0)
                 
                 if event.key == K_RIGHT:	#Si "flèche droite"
-                    position_perso[1] += size
-                    
+                
+                    position_perso = position_perso.move(-1,0)
                 if event.key == K_UP:	#Si "flèche haut"
-                    position_perso[1] += size
+                
+                    position_perso = position_perso.move(0,1)
     #Re-collage	
         pygame.display.flip()      
-        fenetre.blit(perso,tuple(position_perso))
+        fenetre.blit(perso,position_perso)
 	#Rafraichissement
         pygame.display.flip()
         
 fenetre_jeu()
-pygame.quit()
