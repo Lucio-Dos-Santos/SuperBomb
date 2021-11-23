@@ -11,7 +11,7 @@ pix_long = 720
 run = True
 
 pygame.init()
-screen = pygame.display.set_mode((pix_lar, pix_long), RESIZABLE)
+screen = pygame.display.set_mode((pix_lar, pix_long))
 
 GAME_FONT = pygame.freetype.Font('assets/BD_Cartoon_Shout.ttf', 16)
 
@@ -26,6 +26,6 @@ while run:
 	
 	ecran = pygame.display.Info()
 	
-	menu.menu_titre(screen, GAME_FONT, ecran.current_w, ecran.current_h)
+	menu.menu_titre(screen, GAME_FONT, ecran.current_w)
 	
 	pygame.display.flip()
