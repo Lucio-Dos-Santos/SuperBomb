@@ -8,13 +8,14 @@ screen_surface = pygame.display.set_mode(taille_fenetre)
 BLEU_NUIT = (  5,   5,  30)
 GRIS     = (  180, 182,   181)
 JAUNE     = (255, 255,   0)
-
+MARRON = (152, 75, 0)
 timer = pygame.time.Clock()
  
 joueur = pygame.Surface((50, 50))
 joueur.fill(JAUNE)
 # Position du joueur
-x, y = 50, 100
+x, y = 100, 100
+
 # Vitesse du joueur
 vx, vy = 0, 0
 # Gravité vers le bas donc positive
@@ -37,6 +38,23 @@ niveau = [
     [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
     ]
 
+block = pygame.Surface((50,50))
+block.fill(MARRON)
+obstacle = [
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0],
+    [0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0,0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0],
+    [0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0,0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0],
+    [0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0,0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0],
+    [0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0,0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0],
+    ]
+
 def dessiner_niveau(surface, niveau):
     """Dessine le niveau sur la surface donnée.
  
@@ -46,6 +64,16 @@ def dessiner_niveau(surface, niveau):
         for i, case in enumerate(ligne):
             if case == 1:
                 surface.blit(mur, (i*50, j*50))
+
+def dessiner_obstacle(surface, obstacle):
+    """Dessine le niveau sur la surface donnée.
+ 
+    Utilise la surface `mur` pour dessiner les cases de valeur 1
+    """
+    for j, ligne in enumerate(obstacle):
+        for i, case in enumerate(ligne):
+            if case == 1:
+                surface.blit(block, (i*50, j*50))
                 
 continuer = True
 while continuer:
@@ -55,11 +83,15 @@ while continuer:
         if event.type== KEYDOWN:
             if event.key == K_ESCAPE:
                 continuer = 0
+        if event.type == KEYDOWN:
+            if event.key == K_RIGHT:
+                joueur = joueur.move(10,0)
         elif event.type == KEYDOWN:
             if event.key == K_SPACE:
                 vy = -20
     screen_surface.fill(BLEU_NUIT)
     dessiner_niveau(screen_surface, niveau)
+    dessiner_obstacle(screen_surface, obstacle)
     screen_surface.blit(joueur, (x, y))
     pygame.display.flip()
  
