@@ -14,7 +14,7 @@ def menu_multi_loc(screen, GAME_FONT, lar, long):
 	GAME_FONT.render_to(screen, (lar * 0.375, long * 0.35), "Multijoueur", (180, 0, 0), size = 35)
 
 def menu_multi_net(screen, GAME_FONT, lar, long):
-	GAME_FONT.render_to(screen, (lar * 0.5 - 270, 45), "Multijoueur / Réseau", (180, 0, 0), size = 70)
+	GAME_FONT.render_to(screen, (lar * 0.5 - 270, 45), "Multijoueur / Réseau", (180, 0, 0), size = 35)
 
 def menu_quit(screen, GAME_FONT, lar, long):
 	GAME_FONT.render_to(screen, (lar * 0.5 - 100, long - 75), "Quitter", (180, 0, 0), size = 32)
