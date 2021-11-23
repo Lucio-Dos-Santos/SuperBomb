@@ -21,7 +21,7 @@ screen = pygame.display.set_mode((pix_lar, pix_long))
 screen.fill((19 ,80 , 13))
 
 #Définition de la police d'écriture
-GAME_FONT = pygame.freetype.Font('assets/BD_Cartoon_Shout.ttf', 16)
+GAME_FONT_menu = pygame.freetype.Font('assets/BD_Cartoon_Shout.ttf', 16)
 
 #Définition du titre de la fenêtre
 pygame.display.set_caption("Super Bomb")
@@ -51,10 +51,10 @@ while run:
 	ecran = pygame.display.Info()
 
 	#Affichage du menu
-	menu.menu_titre(screen, GAME_FONT, ecran.current_w)
-	menu.menu_solo(screen, GAME_FONT, ecran.current_w, ecran.current_h)
-	menu.menu_multi_loc(screen, GAME_FONT, ecran.current_w, ecran.current_h)
-	menu.menu_quit(screen, GAME_FONT, ecran.current_w, ecran.current_h)
+	menu.menu_titre(screen, GAME_FONT_menu, ecran.current_w)
+	menu.menu_solo(screen, GAME_FONT_menu, ecran.current_w, ecran.current_h)
+	menu.menu_multi_loc(screen, GAME_FONT_menu, ecran.current_w, ecran.current_h)
+	menu.menu_quit(screen, GAME_FONT_menu, ecran.current_w, ecran.current_h)
 	
 	#Limite de FPS
 	clock.tick(60)
