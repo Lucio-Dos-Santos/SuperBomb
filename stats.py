@@ -21,7 +21,6 @@ def click_quit():
 		if mousePos[0] > 559 and mousePos[0] < 674 and mousePos[1] > 711 and mousePos[1] < 739:
 			pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
 			if event.type == MOUSEBUTTONDOWN:
-				print("sa marche !!")
 				main.boucle_main()
 
 		else:
