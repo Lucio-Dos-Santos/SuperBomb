@@ -38,80 +38,85 @@ niveau = [
     [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,0],
     [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
     ]
-
-'''def initi(bomb, joueur, xb,yb):
-    """chargement des sprites"""
-    bomb = pygame.image.load("assets/bomb.png").convert()
-    bomb = pygame.image.load(bomb).convert()
-    """place la bombe a une position non visible par default"""
-    x = 1300
-    y = 800
-    case_x = 255
-    case_y = 255
-    timer = datetime.now()
-    joueur = joueur
-    explosion = 0
-
-def poser(x, y, bomb):
-    """pose et arme la bombe"""
-    bomb = pygame.image.load("assets/bomb").convert()
-    bomb.set_colorkey((255, 255, 255))
-    x = x
-    y = y
-    case_x = int(x / 50)
-    case_y = int(y / 50)
-    timer = datetime.now()
-    explosion = 0
-
-def exploser(self):
+class Bombe: 
+    def init(self,bomb, joueur):
+        """chargement des sprites"""
+        self.bomb = pygame.image.load("assets/bomb.png").convert()
+        """place la bombe a une position non visible par default"""
+        self.x = 1300
+        self.y = 800
+        self.case_x = 255
+        self.case_y = 255
+        self.timer = datetime.now()
+        joueur = joueur
+        self.explosion = 0
     
-    """Explosion de la bombe"""
-    image_explosion = pygame.image.load("assets/explodstart.png").convert_alpha()
-    """condition explosion de la bombe 3 seconde apres"""
-    if timedelta(seconds=3) <= datetime.now() - self._timer:
-        """ change le sprite de la bombe en sprite d'explosion"""
-        bomb = pygame.image.load(image_explosion).convert()
-        bomb.set_colorkey((255, 255, 255))
-        explosion = 1
 
-        try:
-            """ destruction des briques de tous les cotes"""
-            """ mettre la condition dans niveau.detruire() pour simplifier"""
-            if niveau[j][i+1] == 3:
-                niveau(case_y, case_x + 1)
+        
+    def poser(self, x, y, bomb):
+        """pose et arme la bombe"""
+        self.bomb = pygame.image.load("assets/bomb").convert()
+        self.bomb.set_colorkey((255, 255, 255))
+        self.x = x
+        self.y = y
+        self.case_x = int(x / 50)
+        self.case_y = int(y / 50)
+        self.timer = datetime.now()
+        self.explosion = 0
+        
+    def detruire(self, case_x, case_y):
+            """destruction d'un bloc du terrain"""
+            niveau[int(case_x)][int(case_y)] = 3
+            
+    def exploser(self):
+        
+        """Explosion de la bombe"""
+        image_explosion = pygame.image.load("assets/explodstart.png").convert_alpha()
+        """condition explosion de la bombe 3 seconde apres"""
+        if timedelta(seconds=3) <= datetime.now() - timer:
+            """ change le sprite de la bombe en sprite d'explosion"""
+            self.bomb = pygame.image.load(image_explosion).convert()
+            self.bomb.set_colorkey((255, 255, 255))
+            self.explosion = 1
 
-            if niveau[case_y][case_x - 1] == 3:
-                niveau(case_y, case_x - 1)
+            try:
+                """ destruction des briques de tous les cotes"""
+                """ mettre la condition dans niveau.detruire() pour simplifier"""
+                if niveau[j][i+1] == 3:
+                    niveau.Bombe.detruire(case_y, case_x + 1)
 
-            if niveau[case_y - 1][case_x] == 3:
-                niveau(case_y - 1, case_x)
+                if niveau[from_coord_to_grid.case_y][from_coord_to_grid.case_x - 1] == 3:
+                    niveau(from_coord_to_grid.case_y, from_coord_to_grid.case_x - 1)
 
-            if niveau[case_y + 1][case_x] == 3:
-                niveau(case_y + 1, case_x)
+                if niveau[from_coord_to_grid.case_y - 1][from_coord_to_grid.case_x] == 3:
+                    niveau(from_coord_to_grid.case_y - 1, from_coord_to_grid.case_x)
 
-        except IndexError:
-            """ au cas ou la bombe est / detruit un bloc en dehors du terrain"""
-            pass
+                if niveau[from_coord_to_grid.case_y + 1][from_coord_to_grid.case_x] == 3:
+                    niveau(from_coord_to_grid.case_y + 1, from_coord_to_grid.case_x)
 
-    if timedelta(milliseconds=3500) <= datetime.now() - timer:
-        """place la bombe a une position non visible apres l'explosion"""
-        x = 640
-        y = 640
-        case_x = 255
-        case_y = 255
-        explosion = 0
+            except IndexError:
+                """ au cas ou la bombe est / detruit un bloc en dehors du terrain"""
+                pass
 
-def __init__(fflamme_d, fflamme_g, fflamme_h, fflamme_b):
-    """ chargement des sprites de flammes"""
-    fflamme_d = pygame.image.load("assets/fflamme_d").convert()
-    fflamme_d.set_colorkey((255, 255, 255))
-    fflamme_g = pygame.image.load("assets/fflamme_g").convert()
-    fflamme_g.set_colorkey((255, 255, 255))
-    fflamme_h = pygame.image.load("assets/fflamme_h").convert()
-    fflamme_h.set_colorkey((255, 255, 255))
-    fflamme_b = pygame.image.load("assets/fflamme_b").convert()
-    fflamme_b.set_colorkey((255, 255, 255))'''
-    
+        if timedelta(milliseconds=3500) <= datetime.now() - self.timer:
+            """place la bombe a une position non visible apres l'explosion"""
+            self.x = 640
+            self.y = 640
+            self.case_x = 255
+            self.case_y = 255
+            self.explosion = 0
+
+    def __init__(fflamme_d, fflamme_g, fflamme_h, fflamme_b):
+        """ chargement des sprites de flammes"""
+        fflamme_d = pygame.image.load("assets/fflamme_d").convert()
+        fflamme_d.set_colorkey((255, 255, 255))
+        fflamme_g = pygame.image.load("assets/fflamme_g").convert()
+        fflamme_g.set_colorkey((255, 255, 255))
+        fflamme_h = pygame.image.load("assets/fflamme_h").convert()
+        fflamme_h.set_colorkey((255, 255, 255))
+        fflamme_b = pygame.image.load("assets/fflamme_b").convert()
+        fflamme_b.set_colorkey((255, 255, 255))
+        
 
 def dessiner_niveau(surface, niveau):
     """Dessine le niveau sur la surface donnée.
@@ -235,6 +240,7 @@ def compute_penetration(block, old_rect, new_rect):
                     
 continuer = True
 while continuer:
+    pygame.time.Clock().tick(60)
     for event in pygame.event.get():
         if event.type == QUIT:
             continuer = False
@@ -253,17 +259,24 @@ while continuer:
         if  event.type == KEYDOWN:
             if event.key == K_DOWN:
                 joueur = pygame.image.load("assets/Pacman_b.png").convert_alpha()    
-        elif event.type == KEYDOWN:
+        if event.type == KEYDOWN:
             if event.key == K_SPACE:
-                vy = -20
-                    
+                image_bombe=pygame.image.load("assets/bomb").convert()
+                Bombe.poser(joueur.x, joueur.y,image_bombe)
+    if Bombe.exploser.self.explosion == 1:
+        screen_surface.blit(Bombe.__init__.fflamme_b, (poser.bomb.x, poser.bomb.y + 50))
+        screen_surface.blit(__init__.fflamme_h, (poser.bomb.x, poser.bomb.y - 50))
+        screen_surface.blit(__init__.fflamme_g, (poser.bomb.x - 50, poser.bomb.y))
+        screen_surface.blit(__init__.fflamme_d, (poser.bomb.x + 50, poser.bomb.y))         
+    
+    pygame.display.flip()
     
     keys_pressed = pygame.key.get_pressed()
         # Sauvegarde de l'ancienne position
     old_x, old_y = x, y
-    vx = (keys_pressed[K_RIGHT] - keys_pressed[K_LEFT]) * 10
+    vx = (keys_pressed[K_RIGHT] - keys_pressed[K_LEFT]) * 1.5
         
-    vy = (keys_pressed[K_DOWN] - keys_pressed[K_UP]) * 10
+    vy = (keys_pressed[K_DOWN] - keys_pressed[K_UP]) * 1.5
     x += vx
     y += vy
     x, y, vx, vy = bloque_sur_collision(niveau, (old_x, old_y), (x, y), vx, vy)
