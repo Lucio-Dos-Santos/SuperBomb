@@ -1,7 +1,17 @@
+#Import les librairies nécéssaires
 import pygame
+from pygame.constants import FULLSCREEN, RESIZABLE
 from pygame.locals import *
+<<<<<<< Updated upstream
 from datetime import datetime, timedelta
 
+=======
+import pygame.freetype
+from datetime import datetime, timedelta
+
+import stats
+
+>>>>>>> Stashed changes
 pygame.init()
 
 taille_fenetre = (1250, 750)
@@ -52,6 +62,7 @@ class Bombe:
         self.explosion = 0
     
 
+<<<<<<< Updated upstream
         
     def poser(self, x, y, bomb):
         """pose et arme la bombe"""
@@ -117,6 +128,81 @@ class Bombe:
         fflamme_b = pygame.image.load("assets/fflamme_b").convert()
         fflamme_b.set_colorkey((255, 255, 255))
         
+=======
+'''def initi(bomb, joueur, xb,yb):
+    """chargement des sprites"""
+    bomb = pygame.image.load("assets/bomb.png").convert()
+    bomb = pygame.image.load(bomb).convert()
+    """place la bombe a une position non visible par default"""
+    x = 1300
+    y = 800
+    case_x = 255
+    case_y = 255
+    timer = datetime.now()
+    joueur = joueur
+    explosion = 0
+
+def poser(x, y, bomb):
+    """pose et arme la bombe"""
+    bomb = pygame.image.load("assets/bomb").convert()
+    bomb.set_colorkey((255, 255, 255))
+    x = x
+    y = y
+    case_x = int(x / 50)
+    case_y = int(y / 50)
+    timer = datetime.now()
+    explosion = 0
+
+def exploser(self):
+    
+    """Explosion de la bombe"""
+    image_explosion = pygame.image.load("assets/explodstart.png").convert_alpha()
+    """condition explosion de la bombe 3 seconde apres"""
+    if timedelta(seconds=3) <= datetime.now() - self._timer:
+        """ change le sprite de la bombe en sprite d'explosion"""
+        bomb = pygame.image.load(image_explosion).convert()
+        bomb.set_colorkey((255, 255, 255))
+        explosion = 1
+
+        try:
+            """ destruction des briques de tous les cotes"""
+            """ mettre la condition dans niveau.detruire() pour simplifier"""
+            if niveau[j][i+1] == 3:
+                niveau(case_y, case_x + 1)
+
+            if niveau[case_y][case_x - 1] == 3:
+                niveau(case_y, case_x - 1)
+
+            if niveau[case_y - 1][case_x] == 3:
+                niveau(case_y - 1, case_x)
+
+            if niveau[case_y + 1][case_x] == 3:
+                niveau(case_y + 1, case_x)
+
+        except IndexError:
+            """ au cas ou la bombe est / detruit un bloc en dehors du terrain"""
+            pass
+
+    if timedelta(milliseconds=3500) <= datetime.now() - timer:
+        """place la bombe a une position non visible apres l'explosion"""
+        x = 640
+        y = 640
+        case_x = 255
+        case_y = 255
+        explosion = 0
+
+def __init__(fflamme_d, fflamme_g, fflamme_h, fflamme_b):
+    """ chargement des sprites de flammes"""
+    fflamme_d = pygame.image.load("assets/fflamme_d").convert()
+    fflamme_d.set_colorkey((255, 255, 255))
+    fflamme_g = pygame.image.load("assets/fflamme_g").convert()
+    fflamme_g.set_colorkey((255, 255, 255))
+    fflamme_h = pygame.image.load("assets/fflamme_h").convert()
+    fflamme_h.set_colorkey((255, 255, 255))
+    fflamme_b = pygame.image.load("assets/fflamme_b").convert()
+    fflamme_b.set_colorkey((255, 255, 255))'''
+    
+>>>>>>> Stashed changes
 
 def dessiner_niveau(surface, niveau):
     """Dessine le niveau sur la surface donnée.
@@ -259,6 +345,7 @@ while continuer:
         if  event.type == KEYDOWN:
             if event.key == K_DOWN:
                 joueur = pygame.image.load("assets/Pacman_b.png").convert_alpha()    
+<<<<<<< Updated upstream
         if event.type == KEYDOWN:
             if event.key == K_SPACE:
                 image_bombe=pygame.image.load("assets/bomb").convert()
@@ -270,13 +357,25 @@ while continuer:
         screen_surface.blit(__init__.fflamme_d, (poser.bomb.x + 50, poser.bomb.y))         
     
     pygame.display.flip()
+=======
+        elif event.type == KEYDOWN:
+            if event.key == K_SPACE:
+                vy = -20
+                    
+>>>>>>> Stashed changes
     
     keys_pressed = pygame.key.get_pressed()
         # Sauvegarde de l'ancienne position
     old_x, old_y = x, y
+<<<<<<< Updated upstream
     vx = (keys_pressed[K_RIGHT] - keys_pressed[K_LEFT]) * 1.5
         
     vy = (keys_pressed[K_DOWN] - keys_pressed[K_UP]) * 1.5
+=======
+    vx = (keys_pressed[K_RIGHT] - keys_pressed[K_LEFT]) * 10
+        
+    vy = (keys_pressed[K_DOWN] - keys_pressed[K_UP]) * 10
+>>>>>>> Stashed changes
     x += vx
     y += vy
     x, y, vx, vy = bloque_sur_collision(niveau, (old_x, old_y), (x, y), vx, vy)
@@ -284,6 +383,11 @@ while continuer:
     screen_surface.fill(GRIS)
     dessiner_niveau(screen_surface, niveau)
     screen_surface.blit(joueur, (x, y))
+
+    #Luca
+    stats.button_quit(screen_surface, taille_fenetre[0], taille_fenetre[1])
+    stats.click_quit()
+    
     pygame.display.flip()
 
 pygame.quit()
