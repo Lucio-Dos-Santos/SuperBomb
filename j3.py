@@ -277,9 +277,9 @@ while continuer:
     keys_pressed = pygame.key.get_pressed()
         # Sauvegarde de l'ancienne position
     old_x, old_y = x, y
-    vx = (keys_pressed[K_RIGHT] - keys_pressed[K_LEFT]) * 1.5
+    vx = (keys_pressed[K_RIGHT] - keys_pressed[K_LEFT]) * 2
         
-    vy = (keys_pressed[K_DOWN] - keys_pressed[K_UP]) * 1.5
+    vy = (keys_pressed[K_DOWN] - keys_pressed[K_UP]) * 2
     x += vx
     y += vy
     x, y, vx, vy = bloque_sur_collision(niveau, (old_x, old_y), (x, y), vx, vy)
