@@ -7,7 +7,8 @@ from datetime import datetime, timedelta
 
 #Import les sous programmes
 import menu
-#from testjeudetesmort import jeu_multidetoutesmort
+import stats
+import main
 
 #Initialisation de la fenêtre graphique
 pygame.init()
@@ -29,9 +30,6 @@ def font_stats():
 GAME_FONT_menu = font_menu()
 GAME_FONT_stats = font_stats()
 
-#Définition du titre de la fenêtre
-pygame.display.set_caption("Super Bomb")
-
 def boucle_main():
 	#Réglage de la résolution de la fenêtre
 	pix_lar = 1280
@@ -42,6 +40,9 @@ def boucle_main():
 	#Définitions de certaines variables
 	run = True
 	clock = pygame.time.Clock()
+
+	#Définition du titre de la fenêtre
+	pygame.display.set_caption("Super Bomb")
 
 	#Boucle néccéssaire pour le bon fonctionnement de la partie graphique
 	while run:
@@ -58,7 +59,8 @@ def boucle_main():
 		if mousePos[0] > 533 and mousePos[0] < 708 and mousePos[1] > 644 and mousePos[1] < 679 :
 			#pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
 			if event.type == MOUSEBUTTONDOWN:
-				run = False
+				pygame.quit()
+				quit()
 			
 		'''if mousePos[0] > 500 and mousePos[0] < 757 and mousePos[1] > 177 and mousePos[1] < 220 : 
 			pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
@@ -70,7 +72,9 @@ def boucle_main():
 			#pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
 			if event.type == MOUSEBUTTONDOWN:
 				pygame.quit()
-				#jeu_multidetoutesmort
+				exec(open("testjeudetesmort.py").read())
+				run = False
+				break
 
 		if not mousePos[0] > 533 and mousePos[0] < 708 and mousePos[1] > 644 and mousePos[1] < 679 :
 			pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)

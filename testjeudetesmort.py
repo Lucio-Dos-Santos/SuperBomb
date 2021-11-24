@@ -273,7 +273,10 @@ def jeu_multidetoutesmort():
                     Bombe.poser(joueur.x, joueur.y,image_bombe)
             if event.type == MOUSEBUTTONDOWN:
                 if mousePos[0] > 559 and mousePos[0] < 674 and mousePos[1] > 711 and mousePos[1] < 739:
+                    pygame.quit()
                     main.boucle_main()
+                    continuer = False
+                    break
                     
 
         '''if Bombe.explosion == 1:
