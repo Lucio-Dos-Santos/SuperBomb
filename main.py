@@ -7,7 +7,6 @@ from datetime import datetime, timedelta
 
 #Import les sous programmes
 import menu
-import j1
 
 #Initialisation de la fenêtre graphique
 pygame.init()
