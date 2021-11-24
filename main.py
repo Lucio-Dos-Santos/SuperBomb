@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 
 #Import les sous programmes
 import menu
+#from testjeudetesmort import jeu_multidetoutesmort
 
 #Initialisation de la fenêtre graphique
 pygame.init()
@@ -69,6 +70,7 @@ def boucle_main():
 			#pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
 			if event.type == MOUSEBUTTONDOWN:
 				pygame.quit()
+				#jeu_multidetoutesmort
 
 		if not mousePos[0] > 533 and mousePos[0] < 708 and mousePos[1] > 644 and mousePos[1] < 679 :
 			pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
@@ -88,6 +90,8 @@ def boucle_main():
 		#Limite de FPS
 		clock.tick(60)
 		pygame.display.flip()
+
+boucle_main()
 
 
 #################################################### TRUC DE BLEDAR
