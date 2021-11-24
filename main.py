@@ -18,7 +18,7 @@ clock = pygame.time.Clock()
 #Initialisation de la fenêtre graphique
 pygame.init()
 screen = pygame.display.set_mode((pix_lar, pix_long))
-screen.fill((19 ,80 , 13))
+screen.fill((80 ,80 , 80))
 
 #Définition de la police d'écriture
 GAME_FONT_menu = pygame.freetype.Font('assets/BD_Cartoon_Shout.ttf', 16)
