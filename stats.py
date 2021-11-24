@@ -16,13 +16,4 @@ def button_quit(screen, lar, long):
 	GAME_FONT_stats.render_to(screen, (lar * 0.45, long - 38), "Quitter", (255,255,255), size = 25)
 
 def click_quit():
-	for event in pygame.event.get():
-		mousePos = pygame.mouse.get_pos()
-		if mousePos[0] > 559 and mousePos[0] < 674 and mousePos[1] > 711 and mousePos[1] < 739:
-			pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
-			if event.type == MOUSEBUTTONDOWN:
-				main.boucle_main()
-
-		else:
-			pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
-	
+	main.boucle_main()
