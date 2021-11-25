@@ -6,9 +6,11 @@ from new_constant import *
 from new_classes import *
 
 ###### SOUS PROGRAMMES
-import main
 import time
 import stats
+import victory
+
+winner = ""
 
 __name__ = "bomberman luncher"
 
@@ -98,7 +100,7 @@ while continuer:
                     continuer_jeu = 0
                     pygame.display.quit()
                     pygame.quit()
-                    main.boucle_main()
+                    exec(open("main.py").read())
                     break
             ##################################
            
@@ -173,25 +175,41 @@ while continuer:
         stats.moves_p1(fenetre, screesize[0], screesize[1])
         stats.player2(fenetre, screesize[0], screesize[1])
         stats.moves_p2(fenetre, screesize[0], screesize[1])
-    
 
         ########################
 
         # affichage de la frame
         pygame.display.flip()
 
+
         # verification des conditions de victoire
         game_over = bombe.exploser()
         if game_over == 1:
-            
-            
+            winner = "Joueur 1"
+            continuer = 0
+            continuer_accueil = 0
             continuer_jeu = 0
-            print("game over")
+            
         game_over = bombe2.exploser()
         if game_over == 1:
-            
-            
+            winner = "Joueur 2"
+            continuer = 0
+            continuer_accueil = 0
             continuer_jeu = 0
-            print("game over")
+           
 
         # print(datetime.now() - debugfps)
+
+fenetre.fill(255,255,255)
+pygame.display.flip()
+victory.victoire(fenetre, winner, screesize[0], screesize[1])
+time.sleep(10)
+pygame.display.quit()
+pygame.quit()
+
+
+'''
+pygame.display.quit()
+pygame.quit()
+exec(open("victory.py").read())
+'''

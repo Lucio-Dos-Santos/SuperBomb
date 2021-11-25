@@ -19,8 +19,8 @@ def player1(screen, lar, long):
 
 def moves_p1(screen, lar, long):
 	GAME_FONT_stats.render_to(screen, (lar * 0.65, long * 0.15), "Poser la bombe - ESPACE", (23, 255, 10), size = 25)
-	GAME_FONT_stats.render_to(screen, (lar * 0.65, long * 0.2), "Avancer - FLECHE HAUT", (23, 255, 10), size = 25)
-	GAME_FONT_stats.render_to(screen, (lar * 0.65, long * 0.25), "Reculer - FLECHE BAS", (23, 255, 10), size = 25)
+	GAME_FONT_stats.render_to(screen, (lar * 0.65, long * 0.2), "Haut - FLECHE HAUT", (23, 255, 10), size = 25)
+	GAME_FONT_stats.render_to(screen, (lar * 0.65, long * 0.25), "Bas - FLECHE BAS", (23, 255, 10), size = 25)
 	GAME_FONT_stats.render_to(screen, (lar * 0.65, long * 0.3), "Droite - FLECHE DROITE", (23, 255, 10), size = 25)
 	GAME_FONT_stats.render_to(screen, (lar * 0.65, long * 0.35), "Gauche - FLECHE GAUCHE", (23, 255, 10), size = 25)
 
@@ -29,7 +29,7 @@ def player2(screen, lar, long):
 
 def moves_p2(screen, lar, long):
 	GAME_FONT_stats.render_to(screen, (lar * 0.65, long * 0.5), "Poser la bombe - E", (23, 255, 10), size = 25)
-	GAME_FONT_stats.render_to(screen, (lar * 0.65, long * 0.55), "Avancer - Z", (23, 255, 10), size = 25)
+	GAME_FONT_stats.render_to(screen, (lar * 0.65, long * 0.55), "Haut - Z", (23, 255, 10), size = 25)
 	GAME_FONT_stats.render_to(screen, (lar * 0.65, long * 0.6), "Reculer - S", (23, 255, 10), size = 25)
-	GAME_FONT_stats.render_to(screen, (lar * 0.65, long * 0.65), "Droite - D", (23, 255, 10), size = 25)
+	GAME_FONT_stats.render_to(screen, (lar * 0.65, long * 0.65), "Bas - D", (23, 255, 10), size = 25)
 	GAME_FONT_stats.render_to(screen, (lar * 0.65, long * 0.7), "Gauche - Q", (23, 255, 10), size = 25)

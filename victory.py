@@ -4,32 +4,71 @@ from pygame.constants import FULLSCREEN, RESIZABLE
 from pygame.locals import *
 import pygame.freetype
 from datetime import datetime, timedelta
-
+from new_main import winner
+from new_main import fenetre
 
 ###### Def des variables
-pix_lar = 1280
-pix_long = 720
+pix_lar = 1250
+pix_long = 750
+'''
 run = True
 clock = pygame.time.Clock()
+'''
+
 
 #Initialisation de la fenêtre graphique
 pygame.init()
 pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
-def init_screen(pix_lar, pix_long):
+
+
+GAME_FONT_victory = pygame.freetype.Font('assets/Spongy.otf', 50)
+
+
+
+
+def victoire(screen, winner, pix_lar, pix_long):
 	screen = pygame.display.set_mode((pix_lar, pix_long))
 	screen.fill((80 ,80 , 80))
-	GAME_FONT_victory = pygame.freetype.Font('assets/Spongy.otf', 50)
-	return(screen)
-
-
-#Définition du titre de la fenêtre
-pygame.display.set_caption("Super Bomb")
+	GAME_FONT_victory.render_to(screen, (pix_lar * 0.25, pix_long * 0.4), "Le gagnant de la partie est : ", (255, 255,255), size = 40)
+	GAME_FONT_victory.render_to(screen, (pix_lar * 0.35, pix_long * 0.5), winner, (255, 255, 255), size = 40)
 
 
 
-while run:
 
-	screen = init_screen(pix_lar, pix_long)
+victoire
+
+
+'''
+#Limite de FPS
+clock.tick(60)
+pygame.display.flip()
+'''
+
+
+
+
+
+
+
+'''
+		def init_screen(pix_lar, pix_long):
+			screen = pygame.display.set_mode((pix_lar, pix_long))
+			screen.fill((80 ,80 , 80))
+			return(screen)
+
+
+		#Définition du titre de la fenêtre
+		pygame.display.set_caption("Super Bomb")
+
+
+
+
+
+		screen = init_screen(pix_lar, pix_long)
+
+
+###########################################################################
+
 
 	for event in pygame.event.get():
 			if event.type == KEYDOWN:
@@ -48,7 +87,4 @@ while run:
 			else:
 				pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
 
-
-			#Limite de FPS
-			clock.tick(60)
-			pygame.display.flip()
+'''
