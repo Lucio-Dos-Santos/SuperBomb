@@ -63,7 +63,7 @@ while continuer:
         # fond = pygame.image.load(image_fond).convert()
 
         # generation du niveau à partir du fichier
-        niveau = Niveau("level.txt")
+        niveau = Niveau("level1.txt")
         niveau.generer()
         niveau.afficher(fenetre)
 
