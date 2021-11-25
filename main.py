@@ -59,6 +59,7 @@ def boucle_main():
 		if mousePos[0] > 533 and mousePos[0] < 708 and mousePos[1] > 644 and mousePos[1] < 679 :
 			#pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
 			if event.type == MOUSEBUTTONDOWN:
+				pygame.display.quit()
 				pygame.quit()
 				quit()
 			
@@ -71,7 +72,7 @@ def boucle_main():
 		if mousePos[0] > 476 and mousePos[0] < 774 and mousePos[1] > 249 and mousePos[1] < 288 : 
 			#pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
 			if event.type == MOUSEBUTTONDOWN:
-				pygame.quit()
+				pygame.display.quit()
 				exec(open("new_main.py").read())
 				run = False
 				break

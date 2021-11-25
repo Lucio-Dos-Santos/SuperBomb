@@ -78,6 +78,10 @@ while continuer:
     # boucle de jeu
     while continuer_jeu:
 
+        ##############################LUCA
+        mousePos = pygame.mouse.get_pos()
+        ##############################
+
         # debugfps = datetime.now()
 
         # limitation de la vitesse de la boucle infinie
@@ -87,6 +91,16 @@ while continuer:
         # boucle des evenements de pygame
         for event in pygame.event.get():
 
+            ################################## LUCA
+            if event.type == MOUSEBUTTONDOWN:
+                if mousePos[0] > 932 and mousePos[0] < 1051 and mousePos[1] > 699 and mousePos[1] < 727:
+                    continuer_jeu = 0
+                    pygame.display.quit()
+                    main.boucle_main()
+                    break
+            ##################################
+           
+           
             # quitter le jeu [X][-][□]
             if event.type == QUIT:
                 continuer_jeu = 0
@@ -145,6 +159,14 @@ while continuer:
             fenetre.blit(flamme.fflamme_h, (bombe2.x, bombe2.y - taille_sprite))
             fenetre.blit(flamme.fflamme_g, (bombe2.x - taille_sprite, bombe2.y))
             fenetre.blit(flamme.fflamme_d, (bombe2.x + taille_sprite, bombe2.y))
+
+        
+
+        ######################## LUCA
+        stats.button_quit(fenetre, screesize[0], screesize[1])
+    
+
+        ########################
 
         # affichage de la frame
         pygame.display.flip()
