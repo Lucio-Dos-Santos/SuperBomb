@@ -4,8 +4,10 @@ from pygame.constants import FULLSCREEN, RESIZABLE
 from pygame.locals import *
 import pygame.freetype
 from datetime import datetime, timedelta
-from new_main import winner
-from new_main import fenetre
+import time
+import main
+#from multijoueur import winner
+#from multijoueur import fenetre
 
 ###### Def des variables
 pix_lar = 1250
@@ -21,7 +23,7 @@ pygame.init()
 pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
 
 
-GAME_FONT_victory = pygame.freetype.Font('assets/Spongy.otf', 50)
+GAME_FONT_victory = pygame.freetype.Font('assets/MilkyNice-Clean.ttf', 50)
 
 
 
@@ -30,12 +32,15 @@ def victoire(screen, winner, pix_lar, pix_long):
 	screen = pygame.display.set_mode((pix_lar, pix_long))
 	screen.fill((80 ,80 , 80))
 	GAME_FONT_victory.render_to(screen, (pix_lar * 0.25, pix_long * 0.4), "Le gagnant de la partie est : ", (255, 255,255), size = 40)
-	GAME_FONT_victory.render_to(screen, (pix_lar * 0.35, pix_long * 0.5), winner, (255, 255, 255), size = 40)
+	GAME_FONT_victory.render_to(screen, (pix_lar * 0.40, pix_long * 0.5), winner, (255, 255, 255), size = 40)
+	pygame.display.flip()
+	time.sleep(4)
+	pygame.display.quit()
+	pygame.quit()
+	main.boucle_main()
+	#exec(open("main.py").read())
 
 
-
-
-victoire
 
 
 '''

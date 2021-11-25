@@ -8,7 +8,7 @@ from new_classes import *
 ###### SOUS PROGRAMMES
 import time
 import stats
-#import victory
+import victory
 
 winner = ""
 
@@ -182,6 +182,11 @@ while continuer:
         game_over = bombe.exploser()
         if game_over == 1:
             winner = "Joueur 1"
+            #fenetre.fill(255,255,255)
+            pygame.display.flip()
+            pygame.display.quit()
+            pygame.quit()
+            victory.victoire(fenetre, winner, screesize[0], screesize[1])
             continuer = 0
             continuer_accueil = 0
             continuer_jeu = 0
@@ -189,6 +194,11 @@ while continuer:
         game_over = bombe2.exploser()
         if game_over == 1:
             winner = "Joueur 2"
+            #fenetre.fill(255,255,255)
+            pygame.display.flip()
+            pygame.display.quit()
+            pygame.quit()
+            victory.victoire(fenetre, winner, screesize[0], screesize[1])
             continuer = 0
             continuer_accueil = 0
             continuer_jeu = 0
@@ -196,10 +206,7 @@ while continuer:
 
         # print(datetime.now() - debugfps)
 
-fenetre.fill(255,255,255)
-pygame.display.flip()
-victory.victoire(fenetre, winner, screesize[0], screesize[1])
-time.sleep(10)
+
 pygame.display.quit()
 pygame.quit()
 
