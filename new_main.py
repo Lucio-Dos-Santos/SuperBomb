@@ -113,7 +113,10 @@ while continuer:
                     continuer_jeu = 0
                 if event.key == K_SPACE:
                     bombe.poser(perso.x, perso.y, image_bombe)
-
+                    #bombe += 1
+                    #if bombe < 2:
+                        #continue
+                    
                 # touches de déplacement perso
                 elif event.key == K_RIGHT:
                     perso.deplacer("droite")
