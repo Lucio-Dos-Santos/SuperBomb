@@ -184,13 +184,13 @@ while continuer:
         game_over = bombe.exploser()
         if game_over == 1:
             
-            main.boucle_main()
+            
             continuer_jeu = 0
             print("game over")
         game_over = bombe2.exploser()
         if game_over == 1:
             
-            main.boucle_main()
+            
             continuer_jeu = 0
             print("game over")
 
