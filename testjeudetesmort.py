@@ -1,10 +1,14 @@
 import pygame
 from pygame.locals import *
 from datetime import datetime, timedelta
+
+###############LUCA
 import stats
 import main
 
 def jeu_multidetoutesmort():
+
+###############
 
     pygame.init()
 
@@ -248,7 +252,9 @@ def jeu_multidetoutesmort():
     continuer = True
     while continuer:
         pygame.time.Clock().tick(60)
+        ##############################LUCA
         mousePos = pygame.mouse.get_pos()
+        ##############################
         for event in pygame.event.get():
             if event.type == QUIT:
                 continuer = False
@@ -271,13 +277,15 @@ def jeu_multidetoutesmort():
                 if event.key == K_SPACE:
                     image_bombe=pygame.image.load("assets/bomb").convert()
                     Bombe.poser(joueur.x, joueur.y,image_bombe)
+            
+            ################################## LUCA
             if event.type == MOUSEBUTTONDOWN:
                 if mousePos[0] > 559 and mousePos[0] < 674 and mousePos[1] > 711 and mousePos[1] < 739:
                     pygame.quit()
                     main.boucle_main()
                     continuer = False
                     break
-                    
+            ##################################
 
         '''if Bombe.explosion == 1:
             screen_surface.blit(flamme.fflamme_b, (bombe.x, bombe.y + 50))
@@ -285,7 +293,6 @@ def jeu_multidetoutesmort():
             screen_surface.blit(flamme.fflamme_g, (poser.bomb.x - 50, poser.bomb.y))
             screen_surface.blit(flamme.fflamme_d, (poser.bomb.x + 50, poser.bomb.y))'''      
         
-        #pygame.display.flip()
         
         keys_pressed = pygame.key.get_pressed()
             # Sauvegarde de l'ancienne position
@@ -310,4 +317,6 @@ def jeu_multidetoutesmort():
 
     pygame.quit()
 
+##########################LUCA
 jeu_multidetoutesmort()
+##########################
