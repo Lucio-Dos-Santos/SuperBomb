@@ -73,6 +73,7 @@ def boucle_main():
 			#pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
 			if event.type == MOUSEBUTTONDOWN:
 				pygame.display.quit()
+				pygame.quit()
 				exec(open("new_main.py").read())
 				run = False
 				break

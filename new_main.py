@@ -96,6 +96,7 @@ while continuer:
                 if mousePos[0] > 932 and mousePos[0] < 1051 and mousePos[1] > 699 and mousePos[1] < 727:
                     continuer_jeu = 0
                     pygame.display.quit()
+                    pygame.quit()
                     main.boucle_main()
                     break
             ##################################
