@@ -165,6 +165,10 @@ while continuer:
 
         ######################## LUCA
         stats.button_quit(fenetre, screesize[0], screesize[1])
+        stats.player1(fenetre, screesize[0], screesize[1])
+        stats.moves_p1(fenetre, screesize[0], screesize[1])
+        stats.player2(fenetre, screesize[0], screesize[1])
+        stats.moves_p2(fenetre, screesize[0], screesize[1])
     
 
         ########################
