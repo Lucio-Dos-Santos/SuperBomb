@@ -56,7 +56,7 @@ class Niveau:
 class Perso:
     """Classe permettant de créer un personage"""
 
-    def __init__(self, droite, gauche, haut, bas, niveau):
+    def __init__(self, p1_droite, p1_gauche, p1_haut, p1_bas, niveau):
         # initialisation des images et gestion de la transparance
         self.droite = pygame.image.load(p1_droite).convert()
         self.droite.set_colorkey((255, 255, 255))
@@ -79,9 +79,9 @@ class Perso:
         """Methode de déplacement du personnage"""
 
         if direction == "droite":
-            # dépassement de l'écran ?
+            
             if self.case_x < (nombre_sprite_cote - 1):
-                # destination le sol ?
+             
                 if self.niveau.structure[self.case_y][self.case_x + 1] == "s":
                     # déplacement d"une case
                     self.case_x += 1
@@ -137,9 +137,9 @@ class Perso2:
         """Methode de déplacement du personnage"""
 
         if direction == "droite":
-            # dépassement de l'écran ?
+            
             if self.case_x < (nombre_sprite_cote - 1):
-                # destination le sol ?
+          
                 if self.niveau.structure[self.case_y][self.case_x + 1] == "s":
                     # déplacement d"une case
                     self.case_x += 1
@@ -202,17 +202,17 @@ class Bomb:
     def exploser(self):
         """Explosion de la bombe"""
 
-        # condition explosion de la bombe 3 seconde apres
-        if timedelta(seconds=3) <= datetime.now() - self._time_created:
+        # condition explosion de la bombe 2 seconde apres
+        if timedelta(seconds=2) <= datetime.now() - self._time_created:
             # change le sprite de la bombe en sprite d'explosion
             self.bomb = pygame.image.load(image_explosion).convert()
             self.bomb.set_colorkey((255, 255, 255))
             self.explosion = 1
 
-            # try / except vrmt hard codé à supprimer
+          
             try:
                 # destruction des briques de tous les cotes
-                # mettre la condition dans niveau.detruire() pour simplifier
+                
                 if self.niveau.structure[self.case_y][self.case_x + 1] == "a":
                     self.niveau.detruire(self.case_y, self.case_x + 1)
 
@@ -225,7 +225,7 @@ class Bomb:
                 if self.niveau.structure[self.case_y + 1][self.case_x] == "a":
                     self.niveau.detruire(self.case_y + 1, self.case_x)
 
-                # conditions de victoire (a simplifier)
+                # conditions de victoire 
                 if self.case_x == self.perso1.case_x and self.case_y - 1 <= self.perso1.case_y <= self.case_y + 1:
                     return 1
                 elif self.case_x - 1 <= self.perso1.case_x <= self.case_x + 1 and self.case_y == self.perso1.case_y:
@@ -240,10 +240,10 @@ class Bomb:
                 # au cas ou la bombe est / detruit un bloc en dehors du terrain
                 pass
 
-        if timedelta(milliseconds=3500) <= datetime.now() - self._time_created:
+        if timedelta(milliseconds=2500) <= datetime.now() - self._time_created:
             # place la bombe a une position non visible apres l'explosion
-            self.x = 640
-            self.y = 640
+            self.x = 1300
+            self.y = 800
             self.case_x = 255
             self.case_y = 255
             self.explosion = 0
@@ -256,10 +256,10 @@ class Bomb2:
         # chargement des sprites
         self.bomb = pygame.image.load(bomb).convert()
         # place la bombe a une position non visible par default
-        self.x = 640
-        self.y = 640
-        self.case_x = 255
-        self.case_y = 255
+        self.x = 30
+        self.y = 30
+        self.case_x = 50
+        self.case_y = 50
         self._time_created = datetime.now()
         # déclaration des variables de la classe
         self.niveau = niveau
@@ -280,13 +280,13 @@ class Bomb2:
 
     def exploser(self):
         """Explosion de la bombe"""
-
-        if timedelta(seconds=3) <= datetime.now() - self._time_created:
+        
+        if timedelta(seconds=2) <= datetime.now() - self._time_created:
             self.bomb = pygame.image.load(image_explosion).convert()
             self.bomb.set_colorkey((255, 255, 255))
             self.explosion = 1
 
-            # try / except vrmt hard codé à supprimer
+            
             try:
                 # destruction des briques de tous les cotes
                 if self.niveau.structure[self.case_y][self.case_x + 1] == "b":
@@ -314,12 +314,12 @@ class Bomb2:
             except IndexError:
                 pass
 
-        if timedelta(milliseconds=3500) <= datetime.now() - self._time_created:
+        if timedelta(milliseconds=2500) <= datetime.now() - self._time_created:
             # place la bombe a une position non visible
-            self.x = 640
-            self.y = 640
-            self.case_x = 255
-            self.case_y = 255
+            self.x = 1300
+            self.y = 800
+            self.case_x = 50
+            self.case_y = 50
             self.explosion = 0
 
 
