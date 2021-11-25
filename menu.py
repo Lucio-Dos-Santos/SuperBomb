@@ -8,7 +8,7 @@ def menu_titre(screen, GAME_FONT, lar):
 	GAME_FONT.render_to(screen, (lar * 0.5 - 270, 45), "Super Bomb", (245, 118, 39), size = 70)
 
 def menu_solo(screen, GAME_FONT, lar, long):
-	GAME_FONT.render_to(screen, (lar * 0.5 - 135, long * 0.25), "Mode Solo - WIP", (218, 22, 22), size = 35)
+	GAME_FONT.render_to(screen, (lar * 0.5 - 135, long * 0.25), "/!\Solo/!\ ", (218, 22, 22), size = 35)
 
 def menu_multi_loc(screen, GAME_FONT, lar, long):
 	GAME_FONT.render_to(screen, (lar * 0.375, long * 0.35), "Multijoueur", (218, 22, 22), size = 35)
