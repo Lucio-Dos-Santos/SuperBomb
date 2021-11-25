@@ -62,19 +62,13 @@ def boucle_main():
 				pygame.display.quit()
 				pygame.quit()
 				quit()
-			
-		'''if mousePos[0] > 500 and mousePos[0] < 757 and mousePos[1] > 177 and mousePos[1] < 220 : 
-			pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
-			if event.type == MOUSEBUTTONDOWN:
-				print("Mode Solo")
-		'''
-		
+
 		if mousePos[0] > 476 and mousePos[0] < 774 and mousePos[1] > 249 and mousePos[1] < 288 : 
 			#pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
 			if event.type == MOUSEBUTTONDOWN:
 				pygame.display.quit()
 				pygame.quit()
-				exec(open("new_main.py").read())
+				exec(open("multijoueur.py").read())
 				run = False
 				break
 

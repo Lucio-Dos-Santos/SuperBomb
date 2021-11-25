@@ -8,7 +8,7 @@ from new_classes import *
 ###### SOUS PROGRAMMES
 import time
 import stats
-import victory
+#import victory
 
 winner = ""
 
@@ -30,8 +30,7 @@ continuer = 1
 while continuer:
 
     # chargement de l'accueil
-    #accueil = pygame.image.load(image_accueil).convert()
-    #fenetre.blit(accueil, (0, 0))
+ 
 
     # rafraichissement
     pygame.display.flip()
@@ -65,7 +64,7 @@ while continuer:
         # fond = pygame.image.load(image_fond).convert()
 
         # generation du niveau à partir du fichier
-        niveau = Niveau("level1.txt")
+        niveau = Niveau("level2.txt")
         niveau.generer()
         niveau.afficher(fenetre)
 
@@ -143,18 +142,15 @@ while continuer:
                 elif event.key == K_z:
                     perso2.deplacer("haut")
 
-        # définition des affichages au nouvelles positions
-        # A faire => actualiser seulement ce qui a changer pour ameliorer fps
-        # ≈15fps --> Intel(R) Atom(TM) x5-Z8350  CPU @ 1.44GHz (Ubuntu 16.04.4 LTS)
-        #fenetre.blit(fond, (0, 0))
+       
         niveau.afficher(fenetre)
         fenetre.blit(perso.direction, (perso.x, perso.y))
         fenetre.blit(perso2.direction, (perso2.x, perso2.y))
         fenetre.blit(bombe.bomb, (bombe.x, bombe.y))
         fenetre.blit(bombe2.bomb, (bombe2.x, bombe2.y))
 
-        # affichage des flammes de l'explosion (à simplifier avec la class flamme)
-        # A integrer la classe flamme dans la class bombe pour simplifier
+        # affichage des flammes de l'explosion 
+  
         if bombe.explosion == 1:
             fenetre.blit(flamme.fflamme_b, (bombe.x, bombe.y + taille_sprite))
             fenetre.blit(flamme.fflamme_h, (bombe.x, bombe.y - taille_sprite))
