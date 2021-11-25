@@ -43,6 +43,7 @@ def boucle_main():
 
 	#Définition du titre de la fenêtre
 	pygame.display.set_caption("Super Bomb")
+	pygame.display.set_icon(pygame.image.load("icon.ico"))
 
 	#Boucle néccéssaire pour le bon fonctionnement de la partie graphique
 	while run:

@@ -22,6 +22,7 @@ pygame.display.init()
 screesize = (1250, 750)
 fenetre = pygame.display.set_mode(screesize)
 pygame.display.set_caption("Super Bomb")
+pygame.display.set_icon(pygame.image.load("icon.ico"))
 
 # variable de debut/fin de la boucle infinie
 continuer = 1

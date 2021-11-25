@@ -31,6 +31,8 @@ GAME_FONT_victory = pygame.freetype.Font('assets/MilkyNice-Clean.ttf', 50)
 def victoire(screen, winner, pix_lar, pix_long):
 	screen = pygame.display.set_mode((pix_lar, pix_long))
 	screen.fill((80 ,80 , 80))
+	pygame.display.set_caption("Super Bomb")
+	pygame.display.set_icon(pygame.image.load("icon.ico"))
 	GAME_FONT_victory.render_to(screen, (pix_lar * 0.25, pix_long * 0.4), "Le gagnant de la partie est : ", (255, 255,255), size = 40)
 	GAME_FONT_victory.render_to(screen, (pix_lar * 0.40, pix_long * 0.5), winner, (255, 255, 255), size = 40)
 	pygame.display.flip()
