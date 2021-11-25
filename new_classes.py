@@ -190,6 +190,7 @@ class Bomb:
 
     def poser(self, x, y, bomb):
         """pose et arme la bombe"""
+        self.bombe = 0
         self.bomb = pygame.image.load(bomb).convert()
         self.bomb.set_colorkey((255, 255, 255))
         self.x = x
@@ -198,10 +199,10 @@ class Bomb:
         self.case_y = int(y / taille_sprite)
         self._time_created = datetime.now()
         self.explosion = 0
-
+        
     def exploser(self):
         """Explosion de la bombe"""
-
+        
         # condition explosion de la bombe 2 seconde apres
         if timedelta(seconds=2) <= datetime.now() - self._time_created:
             # change le sprite de la bombe en sprite d'explosion
@@ -209,7 +210,6 @@ class Bomb:
             self.bomb.set_colorkey((255, 255, 255))
             self.explosion = 1
 
-          
             try:
                 # destruction des briques de tous les cotes
                 
@@ -235,7 +235,7 @@ class Bomb:
                     return 1
                 elif self.case_x - 1 <= self.perso2.case_x <= self.case_x + 1 and self.case_y == self.perso2.case_y:
                     return 1
-
+                
             except IndexError:
                 # au cas ou la bombe est / detruit un bloc en dehors du terrain
                 pass
@@ -247,8 +247,7 @@ class Bomb:
             self.case_x = 255
             self.case_y = 255
             self.explosion = 0
-
-
+    
 class Bomb2:
     """Classe controllant la bombe du perso2"""
 
